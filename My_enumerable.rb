@@ -1,17 +1,15 @@
+# frozen_string_literal: true
+
 module MyEnumerable
   def all?
     if block_given?
       each do |val|
         ret = yield(val)
-        if ret == false
-          return false
-        end
-      end     
+        return false if ret == false
+      end
     else
       each do |val|
-        if (val === nil || val === false)
-          return false
-        end
+        return false if val.nil? || val === false
       end
     end
     true
@@ -21,15 +19,11 @@ module MyEnumerable
     if block_given?
       each do |val|
         ret = yield(val)
-        if ret == true
-          return true
-        end
-      end     
+        return true if ret == true
+      end
     else
       each do |val|
-        if (val != nil || val != false)
-          return true
-        end
+        return true if !val.nil? || val != false
       end
     end
     false
@@ -40,10 +34,8 @@ module MyEnumerable
     if block_given?
       each do |val|
         ret = yield(val)
-        if ret == true
-          array.push(val)
-        end
-      end  
+        array.push(val) if ret == true
+      end
     end
     array
   end
