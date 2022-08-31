@@ -14,7 +14,7 @@ To get a local copy up and running follow these simple example steps.
 - git clone https://github.com/Saadat123456/Ruby_Enumerator.git
 
 ### Usage
-- ruby MyList.rb (to run the file in your pc)
+- ruby my_list.rb (to run the file in your pc)
 
 ## Authors
 
